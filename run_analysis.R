@@ -1,4 +1,8 @@
 
+## Load Libraries
+library(plyr)
+library(dplyr)
+
 # Download the data
 
 setwd("")
@@ -62,7 +66,7 @@ dim(d_mean_std)
 
 #3.Uses descriptive activity names to name the activities in the data set
 
-Tidy_Data = join(d_mean_std, activity_labels, by = "Id", match = "all")
+Tidy_Data = left_join(d_mean_std, activity_labels, by = "Id", match = "all")
 
 Tidy_Data = Tidy_Data %>%
   select(-Id)
